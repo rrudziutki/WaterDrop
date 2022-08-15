@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     var backgroundImage: UIImageView!
     var droplet: UIImageView!
+    var timerLabel: UILabel!
     var fromTimeLabel: UILabel!
     var toTimeLabel: UILabel!
     var byTimeLabel: UILabel!

@@ -24,6 +24,13 @@ extension ViewController {
         droplet.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(droplet)
         
+        timerLabel = UILabel()
+        timerLabel.text = "15:00"
+        timerLabel.font = .systemFont(ofSize: 26, weight: .light)
+        timerLabel.textColor = .systemCyan
+        timerLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(timerLabel)
+        
         //MARK: - From
         fromTimeLabel = UILabel()
         fromTimeLabel.text = "From:"
@@ -124,8 +131,11 @@ extension ViewController {
             droplet.centerXAnchor.constraint(equalTo: layout.centerXAnchor),
             droplet.topAnchor.constraint(equalTo: layout.topAnchor),
             
+            timerLabel.centerXAnchor.constraint(equalTo: layout.centerXAnchor),
+            timerLabel.topAnchor.constraint(equalTo: droplet.bottomAnchor, constant: 10),
+            
             fromTimeLabel.centerXAnchor.constraint(equalTo: fromPicker.centerXAnchor),
-            fromTimeLabel.topAnchor.constraint(equalTo: droplet.bottomAnchor, constant: 20),
+            fromTimeLabel.topAnchor.constraint(equalTo: timerLabel.bottomAnchor, constant: 20),
             
             fromPicker.rightAnchor.constraint(equalTo: layout.centerXAnchor),
             fromPicker.leftAnchor.constraint(equalTo: layout.leftAnchor),
@@ -133,7 +143,7 @@ extension ViewController {
             fromPicker.bottomAnchor.constraint(equalTo: byTimeLabel.topAnchor),
             
             toTimeLabel.leftAnchor.constraint(equalTo: layout.centerXAnchor, constant: screenWidth * 0.2),
-            toTimeLabel.topAnchor.constraint(equalTo: droplet.bottomAnchor, constant: 20),
+            toTimeLabel.topAnchor.constraint(equalTo: timerLabel.bottomAnchor, constant: 20),
             
             toPicker.rightAnchor.constraint(equalTo: layout.rightAnchor),
             toPicker.leftAnchor.constraint(equalTo: layout.centerXAnchor),
