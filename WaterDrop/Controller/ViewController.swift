@@ -10,13 +10,20 @@ import UIKit
 class ViewController: UIViewController {
     var backgroundImage: UIImageView!
     var droplet: UIImageView!
+    //MARK: - Timer
+    var timer: Timer!
     var timerLabel: UILabel!
+    var minutes = 15
+    var seconds = 0
+    //MARK: - Time Labels
     var fromTimeLabel: UILabel!
     var toTimeLabel: UILabel!
     var byTimeLabel: UILabel!
+    //MARK: - Time Pickers
     var fromPicker: UIPickerView!
     var toPicker: UIPickerView!
     var byPicker: UIPickerView!
+    //MARK: - Buttons
     var startButton: UIButton!
     var stopButton: UIButton!
     var isCounting = false {
@@ -35,9 +42,6 @@ class ViewController: UIViewController {
         
         fromPicker.selectRow(8, inComponent: 0, animated: true)
         toPicker.selectRow(16, inComponent: 0, animated: true)
-        byPicker.selectRow(3, inComponent: 0, animated: true)
+        byPicker.selectRow(2, inComponent: 0, animated: true)
     }
-    
-    
-    
 }

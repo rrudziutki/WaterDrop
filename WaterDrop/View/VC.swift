@@ -25,7 +25,7 @@ extension ViewController {
         view.addSubview(droplet)
         
         timerLabel = UILabel()
-        timerLabel.text = "15:00"
+        timerLabel.text = "\(minutes):0\(seconds)"
         timerLabel.font = .systemFont(ofSize: 26, weight: .light)
         timerLabel.textColor = .systemCyan
         timerLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +86,7 @@ extension ViewController {
             config.cornerStyle = .large
             config.baseBackgroundColor = .systemCyan
             config.title = "START"
+            button.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
             button.addAction(
                 UIAction { _ in
                     self.isCounting = true
@@ -108,6 +109,7 @@ extension ViewController {
             config.cornerStyle = .large
             config.baseBackgroundColor = .systemRed
             config.title = "STOP"
+            button.addTarget(self, action: #selector(stopTimer), for: .touchUpInside)
             button.addAction(
                 UIAction { _ in
                     self.isCounting = false

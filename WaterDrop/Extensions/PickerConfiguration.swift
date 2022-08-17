@@ -35,6 +35,11 @@ extension ViewController: UIPickerViewDataSource {
 //MARK: - Delegate
 extension ViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(row)
+        if pickerView == byPicker {
+            minutes = DatePickerData.byMinutesArray[row]
+            seconds = 0
+            timerLabel.text = "\(minutes):0\(seconds)"
+        }
     }
 }
+
