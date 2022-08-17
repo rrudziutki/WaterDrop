@@ -10,6 +10,12 @@ import Foundation
 extension ViewController {
     @objc func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [unowned self] _ in
+            if minutes == 0 && seconds == 0 {
+                stopTimer()
+                //TODO Notifications
+                return
+            }
+            
             if self.seconds > 0 {
                 self.seconds -= 1
             } else {
