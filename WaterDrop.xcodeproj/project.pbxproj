@@ -12,11 +12,10 @@
 		F519885A289BDD94007CF74C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5198859289BDD94007CF74C /* ViewController.swift */; };
 		F519885F289BDD94007CF74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F519885E289BDD94007CF74C /* Assets.xcassets */; };
 		F5198862289BDD94007CF74C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5198860289BDD94007CF74C /* LaunchScreen.storyboard */; };
-		F51EE0C728AA412800D2C920 /* TimerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51EE0C628AA412800D2C920 /* TimerConfiguration.swift */; };
 		F5361299289E845400AF0A25 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5361298289E845400AF0A25 /* UIColor.swift */; };
 		F54BD42428A0FD8700B2A3DA /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BD42328A0FD8700B2A3DA /* VC.swift */; };
 		F54BD42A28A10E4D00B2A3DA /* DatePickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BD42928A10E4D00B2A3DA /* DatePickerData.swift */; };
-		F54BD42C28A10F3300B2A3DA /* PickerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BD42B28A10F3300B2A3DA /* PickerConfiguration.swift */; };
+		F5864FCB28AE49A700061961 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5864FCA28AE49A700061961 /* Int.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +26,10 @@
 		F519885E289BDD94007CF74C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5198861289BDD94007CF74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5198863289BDD94007CF74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F51EE0C628AA412800D2C920 /* TimerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConfiguration.swift; sourceTree = "<group>"; };
 		F5361298289E845400AF0A25 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F54BD42328A0FD8700B2A3DA /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
 		F54BD42928A10E4D00B2A3DA /* DatePickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerData.swift; sourceTree = "<group>"; };
-		F54BD42B28A10F3300B2A3DA /* PickerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerConfiguration.swift; sourceTree = "<group>"; };
+		F5864FCA28AE49A700061961 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				F5361298289E845400AF0A25 /* UIColor.swift */,
-				F54BD42B28A10F3300B2A3DA /* PickerConfiguration.swift */,
-				F51EE0C628AA412800D2C920 /* TimerConfiguration.swift */,
+				F5864FCA28AE49A700061961 /* Int.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,10 +187,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F54BD42428A0FD8700B2A3DA /* VC.swift in Sources */,
-				F54BD42C28A10F3300B2A3DA /* PickerConfiguration.swift in Sources */,
 				F519885A289BDD94007CF74C /* ViewController.swift in Sources */,
+				F5864FCB28AE49A700061961 /* Int.swift in Sources */,
 				F5361299289E845400AF0A25 /* UIColor.swift in Sources */,
-				F51EE0C728AA412800D2C920 /* TimerConfiguration.swift in Sources */,
 				F54BD42A28A10E4D00B2A3DA /* DatePickerData.swift in Sources */,
 				F5198856289BDD94007CF74C /* AppDelegate.swift in Sources */,
 				F5198858289BDD94007CF74C /* SceneDelegate.swift in Sources */,
