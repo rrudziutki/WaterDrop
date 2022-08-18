@@ -25,7 +25,7 @@ extension ViewController {
         view.addSubview(droplet)
         
         timerLabel = UILabel()
-        timerLabel.text = "\(minutes):0\(seconds)"
+        updateTimerLabel(minutes, seconds)
         timerLabel.font = .systemFont(ofSize: 26, weight: .light)
         timerLabel.textColor = .systemCyan
         timerLabel.translatesAutoresizingMaskIntoConstraints = false

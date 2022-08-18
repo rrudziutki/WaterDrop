@@ -3,4 +3,101 @@
    uuid = "302F20B1-59C9-448C-88EA-2A141C0DC4BD"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CA4A5A0F-A92F-4B71-8B7A-FD56948E2EE9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WaterDropTests/MockTimer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "MockTimer"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "CA4A5A0F-A92F-4B71-8B7A-FD56948E2EE9 - f9366decfa870f06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WaterDropTests.MockTimer.__allocating_init(fireAt: Foundation.Date, interval: Swift.Double, target: Any, selector: ObjectiveC.Selector, userInfo: Swift.Optional&lt;Any&gt;, repeats: Swift.Bool) -&gt; WaterDropTests.MockTimer"
+                  moduleName = "WaterDropTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rrudziutki/XCode/Nauka/Mentoring/WaterDrop/WaterDrop/WaterDropTests/MockTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "CA4A5A0F-A92F-4B71-8B7A-FD56948E2EE9 - 71f8288395c1570e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WaterDropTests.MockTimer.init(fireAt: Foundation.Date, interval: Swift.Double, target: Any, selector: ObjectiveC.Selector, userInfo: Swift.Optional&lt;Any&gt;, repeats: Swift.Bool) -&gt; WaterDropTests.MockTimer"
+                  moduleName = "WaterDropTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rrudziutki/XCode/Nauka/Mentoring/WaterDrop/WaterDrop/WaterDropTests/MockTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "CA4A5A0F-A92F-4B71-8B7A-FD56948E2EE9 - 11671a91ed2c965d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WaterDropTests.MockTimer.__deallocating_deinit"
+                  moduleName = "WaterDropTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rrudziutki/XCode/Nauka/Mentoring/WaterDrop/WaterDrop/WaterDropTests/MockTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21DE6D88-4DD5-4B41-AA1C-924E07644CB8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WaterDropTests/MockTimer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "scheduledTimer(withTimeInterval:repeats:block:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A478DD0B-E259-4A46-8519-427855FFB676"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WaterDropTests/WaterDropTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "test_minuteDown()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -6,30 +6,50 @@
 //
 
 import XCTest
+@testable import WaterDrop
 
 class WaterDropTests: XCTestCase {
+    var sut: ViewController!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = ViewController()
+        try super.setUpWithError()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func test_updateLabel() {
+        sut.minutes = 4
+        sut.seconds = 9
+        sut.buildUI()
+        sut.updateTimerLabel(sut.minutes, sut.seconds)
+        XCTAssertEqual(sut.timerLabel.text!, "04:09")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_zeroZero() {
+        sut.minutes = 0
+        sut.seconds = 0
+        let _ = sut.calcTime(&sut.minutes, &sut.seconds)
+        XCTAssertEqual(sut.minutes, 0)
+        XCTAssertEqual(sut.seconds, 0)
     }
-
+    
+    func test_secondDown() {
+        sut.minutes = 4
+        sut.seconds = 25
+        let _ = sut.calcTime(&sut.minutes, &sut.seconds)
+        XCTAssertEqual(sut.minutes, 4)
+        XCTAssertEqual(sut.seconds, 24)
+    }
+    
+    func test_minuteDown() {
+        sut.minutes = 4
+        sut.seconds = 0
+        let _ = sut.calcTime(&sut.minutes, &sut.seconds)
+        XCTAssertEqual(sut.minutes, 3)
+        XCTAssertEqual(sut.seconds, 59)
+    }
 }

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     //MARK: - Timer
     var timer: Timer!
     var timerLabel: UILabel!
-    var minutes = 15
+    var minutes = 1
     var seconds = 0
     //MARK: - Time Labels
     var fromTimeLabel: UILabel!
@@ -37,16 +37,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         buildUI()
+        configure()
+    }
+    
+    func updateTimerLabel(_ min: Int, _ sec: Int) {
+        timerLabel.text = "\(min.withLeadingZeros):\(sec.withLeadingZeros)"
+    }
+}
+
+private extension ViewController {
+    func configure() {
         fromPicker.delegate = self; toPicker.delegate = self ; byPicker.delegate = self
         fromPicker.dataSource = self; toPicker.dataSource = self ; byPicker.dataSource = self
         
         fromPicker.selectRow(8, inComponent: 0, animated: true)
         toPicker.selectRow(16, inComponent: 0, animated: true)
         byPicker.selectRow(2, inComponent: 0, animated: true)
-    }
-    
-    private func updateLabel(_ minutes: Int, _ seconds: Int) {
-        timerLabel.text = "\(minutes.withLeadingZeros):\(seconds.withLeadingZeros)"
     }
 }
 
@@ -64,7 +70,7 @@ extension ViewController: UIPickerViewDataSource {
             return DatePickerData.byMinutesArray.count
         }
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView != byPicker {
             return DatePickerData.hourArray[row]
@@ -80,8 +86,7 @@ extension ViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == byPicker {
             minutes = DatePickerData.byMinutesArray[row]
-            seconds = 0
-            updateLabel(minutes, seconds)
+            updateTimerLabel(minutes, seconds)
         }
     }
 }
@@ -89,25 +94,32 @@ extension ViewController: UIPickerViewDelegate {
 //MARK: - Timer Configuration
 extension ViewController {
     @objc func startTimer() {
+        var m = self.minutes
+        var s = self.seconds
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [unowned self] _ in
-            if minutes == 0 && seconds == 0 {
-                stopTimer()
+            if m == 0 && s == 0 {
+                m = self.minutes
+                s = self.seconds
                 //TODO Notifications
-                return
             }
-            
-            if self.seconds > 0 {
-                self.seconds -= 1
-            } else {
-                self.minutes -= 1
-                self.seconds = 59
-            }
-            
-            updateLabel(minutes, seconds)
+            let _ = calcTime(&m, &s)
+            updateTimerLabel(m, s)
         })
     }
     
     @objc func stopTimer() {
         timer.invalidate()
+    }
+    
+    
+    func calcTime( _ m: inout Int, _ s: inout Int) -> (Int, Int) {
+        guard (m,s) != (0,0) else { return (0, 0) }
+        if s > 0 {
+            s -= 1
+        } else {
+            m -= 1
+            s = 59
+        }
+        return (m, s)
     }
 }
