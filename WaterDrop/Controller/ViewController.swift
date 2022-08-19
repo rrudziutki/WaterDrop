@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     //MARK: - Timer
     var timer: Timer!
     var timerLabel: UILabel!
-    var minutes = 1
+    var minutes = 15
     var seconds = 0
     //MARK: - Time Labels
     var fromTimeLabel: UILabel!
@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var fromPicker: UIPickerView!
     var toPicker: UIPickerView!
     var byPicker: UIPickerView!
+    var fromHour = 8
+    var toHour = 16
     //MARK: - Buttons
     var startButton: UIButton!
     var stopButton: UIButton!
@@ -36,7 +38,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        buildUI()
         configure()
     }
     
@@ -45,11 +46,12 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - Configuration
 private extension ViewController {
     func configure() {
+        buildUI()
         fromPicker.delegate = self; toPicker.delegate = self ; byPicker.delegate = self
         fromPicker.dataSource = self; toPicker.dataSource = self ; byPicker.dataSource = self
-        
         fromPicker.selectRow(8, inComponent: 0, animated: true)
         toPicker.selectRow(16, inComponent: 0, animated: true)
         byPicker.selectRow(2, inComponent: 0, animated: true)
@@ -73,7 +75,7 @@ extension ViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView != byPicker {
-            return DatePickerData.hourArray[row]
+            return "\(DatePickerData.hourArray[row].withLeadingZeros):00"
         } else {
             return "\(DatePickerData.byMinutesArray[row]) min."
         }
@@ -84,10 +86,18 @@ extension ViewController: UIPickerViewDataSource {
 //MARK: - UIPicker Delegate
 extension ViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == byPicker {
+        switch pickerView {
+        case byPicker:
             minutes = DatePickerData.byMinutesArray[row]
             updateTimerLabel(minutes, seconds)
+        case fromPicker:
+            fromHour = DatePickerData.hourArray[row]
+        case toPicker:
+            toHour = DatePickerData.hourArray[row]
+        default:
+            return
         }
+        comparePickers(fromHour, toHour, showAlert)
     }
 }
 
@@ -100,7 +110,7 @@ extension ViewController {
             if m == 0 && s == 0 {
                 m = self.minutes
                 s = self.seconds
-                //TODO Notifications
+                //TODO Push Notifications -- it requires paid developer account
             }
             let _ = calcTime(&m, &s)
             updateTimerLabel(m, s)
@@ -121,5 +131,26 @@ extension ViewController {
             s = 59
         }
         return (m, s)
+    }
+    
+    func comparePickers(_ from: Int, _ to: Int,_ alert: () -> Void) {
+        if from >= to {
+            alert()
+        }
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Wrong time setup", message: "Start hour can not be greater than end hour", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Reset", style: .default) { [unowned self] _ in
+            self.resetPickers()
+        })
+        self.present(alert, animated: true)
+    }
+    
+    func resetPickers() {
+        toPicker.selectRow(23, inComponent: 0, animated: true)
+        toHour = 23
+        fromPicker.selectRow(0, inComponent: 0, animated: true)
+        fromHour = 0
     }
 }

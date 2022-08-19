@@ -13,6 +13,7 @@ class WaterDropTests: XCTestCase {
 
     override func setUpWithError() throws {
         sut = ViewController()
+        sut.buildUI()
         try super.setUpWithError()
     }
 
@@ -21,6 +22,7 @@ class WaterDropTests: XCTestCase {
         try super.tearDownWithError()
     }
 
+    //MARK: - Label and counter tests
     func test_updateLabel() {
         sut.minutes = 4
         sut.seconds = 9
@@ -51,5 +53,34 @@ class WaterDropTests: XCTestCase {
         let _ = sut.calcTime(&sut.minutes, &sut.seconds)
         XCTAssertEqual(sut.minutes, 3)
         XCTAssertEqual(sut.seconds, 59)
+    }
+    
+    //MARK: - Pickers tests
+    func test_pickerReset() {
+        sut.resetPickers()
+        XCTAssertEqual(sut.toHour, 23)
+        XCTAssertEqual(sut.fromHour, 0)
+    }
+    
+    func test_pickerComparisionFromBiggerThanTo() {
+        var isCalled = false
+        sut.comparePickers(10, 0) {
+            isCalled = true
+        }
+        XCTAssertTrue(isCalled)
+    }
+    
+    func test_pickerComparisionFromSmallerThanTo() {
+        sut.comparePickers(0, 10) {
+            XCTFail("It shouldn't be called")
+        }
+    }
+    
+    func test_pickerComparisionBothEquals() {
+        var isCalled = false
+        sut.comparePickers(10, 0) {
+            isCalled = true
+        }
+        XCTAssert(isCalled)
     }
 }
