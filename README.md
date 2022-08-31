@@ -1,16 +1,16 @@
 # WaterDrop
 
 WaterDrop is a simple app that helps you track your daily hydration.
-It was build with UIKit and with use of MVC pattern.
+It was build with use of UIKit and MVC pattern.
 
 ## Description
-Main goal of this app was to understand basics of building UI programmatically.
-It is simple single-screen app so the MVC pattern works here well.
+The main goal of creating this app, was to understand basics of building UI programmatically.
+It is simple, single-screen app and the MVC pattern works well in this case.
 
 <img src="https://user-images.githubusercontent.com/76843934/187759037-98ab8d0a-50c2-40fa-95f4-c984d64ead7f.png" width="640">
 
-After choosing the time from which to which and by how many minutes, users can start the timer.
-Label will decrement itself to 0. When it happens the push notification should appear, but to implement this, I would need paid apple developers account, so it will be added in the future.
+After selecting the period of time when the user wants to receive a notification, they can start the timer.
+Timer label will decrement itself to 0. In this moment, the push notification will appear. To implement this functionality, I would have to pay for a Apple developers account (it will be added in the future).
 
 <img src="https://user-images.githubusercontent.com/76843934/187763884-d832ddd5-8787-4f93-97f9-c9747239dbd5.png" width="640">
 
